@@ -1,0 +1,122 @@
+/* =========================
+   GLOBAL
+========================= */
+Screen {
+    background: #050406;
+    color: #e6d6d6;
+}
+
+/* =========================
+   MAIN FRAME
+========================= */
+#frame {
+    border: solid #6f161b;
+    background: #080607;
+    padding: 1 2;
+    margin: 1 2;
+}
+
+/* =========================
+   TITLE
+========================= */
+#title {
+    color: #8b1e24;
+    text-style: bold;
+    content-align: center middle;
+    height: 2;
+}
+
+/* =========================
+   HUD / STATUS
+========================= */
+#hud {
+    border: solid #6f161b;
+    background: #0a0708;
+    padding: 1;
+    height: 8;
+    margin-top: 1;
+    color: #d8c4c4;
+}
+
+/* =========================
+   DEVIL / ART PANEL
+========================= */
+#devil {
+    border: solid #6f161b;
+    background: #0a0708;
+    padding: 1;
+    height: 6;
+    margin-top: 1;
+    color: #8b1e24;
+    content-align: left middle;
+}
+
+/* =========================
+   RIGHT PANEL (CHAT)
+========================= */
+#right_panel {
+    border: solid #6f161b;
+    background: #070506;
+    padding: 1;
+    margin-top: 1;
+}
+
+/* =========================
+   FEED HEADER
+========================= */
+#feed_hdr {
+    height: 2;
+    border: solid #6f161b;
+    background: #0a0708;
+    padding: 1;
+    color: #d8c4c4;
+}
+
+/* =========================
+   CHAT LOG
+========================= */
+#chatlog {
+    height: 1fr;
+    border: solid #6f161b;
+    background: #0a0708;
+    padding: 1;
+    margin-top: 1;
+}
+
+/* =========================
+   MESSAGE INPUT
+========================= */
+#send_row {
+    height: 3;
+    margin-top: 1;
+}
+
+#msg {
+    width: 1fr;
+    border: solid #6f161b;
+    background: #050406;
+    color: #e6d6d6;
+}
+
+/* =========================
+   BUTTON
+========================= */
+Button {
+    border: solid #6f161b;
+    background: #080607;
+    color: #8b1e24;
+    text-style: bold;
+}
+
+Button:hover {
+    background: #6f161b;
+    color: #050406;
+}
+
+/* =========================
+   HEADER / FOOTER
+========================= */
+Header, Footer {
+    background: #050406;
+    color: #8b1e24;
+}
