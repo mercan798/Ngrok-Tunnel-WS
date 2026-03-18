@@ -1,8 +1,3 @@
-Siz şunu dediniz:
-
-ingilizce olosun emojisiz olsun ve çok net ve kısa olsun
-Gemini şunu dedi:
-One Society: Secure Terminal Chat
 
 One Society is a lightweight, FastAPI-powered messaging system featuring a retro-futuristic Terminal User Interface (TUI) built with Textual and Rich. It focuses on privacy through a two-node limit and password-protected rooms.
 Features
