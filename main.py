@@ -1,20 +1,28 @@
+     
+        
+        
+        
 from fastapi import FastAPI, WebSocket
 from dotenv import load_dotenv
 import os
 import json
-
-load_dotenv()
-
+from pathlib import Path
 
 
+base_dir = Path(__file__).resolve().parent
+env_path = base_dir / ".env"
+load_dotenv(dotenv_path=env_path)
 
 app = FastAPI()
 
 rooms = {}
 
 ROOM_PASSWORD = os.getenv("ROOM_PASSWORD")
+
+
 if not ROOM_PASSWORD:
-    raise RuntimeError("ROOM_PASSWORD is not set. Create .env and set ROOM_PASSWORD=...")
+    print("[UYARI] .env dosyasından şifre okunamadı! Varsayılan 'giga123' kullanılıyor.")
+    ROOM_PASSWORD = "giga123"
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
@@ -22,10 +30,12 @@ async def websocket_endpoint(websocket: WebSocket):
     key  = (websocket.query_params.get("key")  or "").strip()
     name = (websocket.query_params.get("user") or "").strip()
 
+ 
     if not room or not key or not name:
         await websocket.close(code=1008)
         return
 
+    
     if key != ROOM_PASSWORD:
         await websocket.close(code=1008)
         return
@@ -37,6 +47,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
     ws_id = id(websocket)
 
+  
     if len(users) >= 2:
         await websocket.send_text("[SYS] Chat room full. Try later.")
         await websocket.close(code=1008)
@@ -49,7 +60,6 @@ async def websocket_endpoint(websocket: WebSocket):
 
     users[ws_id] = {"name": name, "websocket": websocket}
 
-
     for u in users.values():
         if u["websocket"] is not websocket:
             await u["websocket"].send_text(f"[SYS] {name} joined")
@@ -58,7 +68,7 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             message = await websocket.receive_text()
 
-
+      
             try:
                 msg_data = json.loads(message)
                 if isinstance(msg_data, dict) and msg_data.get("type") == "file":
@@ -72,12 +82,13 @@ async def websocket_endpoint(websocket: WebSocket):
             except json.JSONDecodeError:
                 pass
 
-
+           
             for u in users.values():
                 if u["websocket"] is not websocket:
                     await u["websocket"].send_text(f"[{name}] {message}")
 
     finally:
+   
         users.pop(ws_id, None)
 
         for u in users.values():
@@ -85,3 +96,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
         if not users:
             rooms.pop(room, None)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
