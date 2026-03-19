@@ -41,6 +41,14 @@ Bash
 
 uvicorn main:app --reload --port 8000
 
+-- Also we can mak tunnel with local tunnel ..
+
+<img width="1843" height="995" alt="Screenshot from 2026-03-19 18-25-39" src="https://github.com/user-attachments/assets/9c283b05-0a95-466f-b3b8-7f59c44ee723" />
+|
+|- the app will except this either...
+
+
+
 2. Launch the TUI Client:
 Bash
 
