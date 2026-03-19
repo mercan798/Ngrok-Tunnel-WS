@@ -2,6 +2,14 @@
 One Society is a lightweight, FastAPI-powered messaging system featuring a retro-futuristic Terminal User Interface (TUI) built with Textual and Rich. It focuses on privacy through a two-node limit and password-protected rooms.
 Features
 
+
+
+<img width="1843" height="995" alt="Screenshot from 2026-03-19 18-24-12" src="https://github.com/user-attachments/assets/232d5932-164c-4346-9268-ace4c3813b35" />
+
+
+<img width="1843" height="995" alt="Screenshot from 2026-03-19 18-23-23" src="https://github.com/user-attachments/assets/df9efed1-34b7-4386-81af-d5f10f857b0c" />
+
+
     Terminal UI: High-contrast HUD interface for secure communication.
 
     WebSocket Backend: Fast, asynchronous message routing using FastAPI.
